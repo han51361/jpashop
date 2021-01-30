@@ -18,7 +18,7 @@ public class Order {
     @Column(name= "order_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
@@ -27,7 +27,7 @@ public class Order {
 
 
     // access 가 많은 곳에 onetoone 일 경우 foreign key 를 둔다.
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
