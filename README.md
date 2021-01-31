@@ -36,4 +36,12 @@
     <물리명 생성(physical-strategy)> : 모든 논리명에 적용됨, 실제 테이블에 적용 (username -> usernm ) 
                                                                                                 
    
-                                                                                                                                                                                                                                                                                 
+   ## 애플리케이션 아키텍쳐
+   
+  - #### 계층형 구조 사용
+    - controller , web : 웹 계층
+    - service : 비즈니스 로직, 트랜잭션 처리
+    - repository : JPA 를 직접 사용하는 계층, 엔티티 매니저 사용
+    - domain : 엔티티가 모여 있는 계층 , 모든 계층에서 접근 및 사
+    - #### 단방향 구조 : Controller -> Service -> Repository -> DB  
+        - (Controller 에서 Repository 바로 접근 가능)                                                                                                                                                                                                                                                                        
