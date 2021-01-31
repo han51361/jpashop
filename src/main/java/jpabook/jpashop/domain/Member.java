@@ -25,6 +25,9 @@ public class Member {
 
     //나는 주인이 아니에요 하면 mappedby  order table 에있는 member에 맵핑
     @OneToMany(mappedBy = "member")
-    private List<Order> orders = new ArrayList<>();
+    private List<Order> orders = new ArrayList<>();  //nullpointException 날 이유가 없다.
+
+
+
 
 }
