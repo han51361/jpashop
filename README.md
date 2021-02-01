@@ -44,4 +44,6 @@
     - repository : JPA 를 직접 사용하는 계층, 엔티티 매니저 사용
     - domain : 엔티티가 모여 있는 계층 , 모든 계층에서 접근 및 사
     - #### 단방향 구조 : Controller -> Service -> Repository -> DB  
-        - (Controller 에서 Repository 바로 접근 가능)                                                                                                                                                                                                                                                                        
+        - (Controller 에서 Repository 바로 접근 가능)               
+        
+  - Garbage Collection                                                                                                                                                                                                                                                         
