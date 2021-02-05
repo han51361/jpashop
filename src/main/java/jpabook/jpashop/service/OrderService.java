@@ -19,9 +19,8 @@ public class OrderService {
 
     // 해당 회원 주문 조회
 
-    @Transactional(readOnly = true)
-    public List<Order> findOrder(Long id){
+  //  @Transactional(readOnly = true)
+   // public List<Order> findOrder(Long id){
 
-
-    }
+   // }
 }
