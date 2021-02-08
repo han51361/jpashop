@@ -53,4 +53,51 @@ public class Order {
         this.delivery = delivery;
         delivery.setOrder(this);
   }
+
+  // 생성 메소드
+  // 주문을 생성할 때 모든 것을 완성 시킨다 . 응집력 업
+    public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems){
+        Order order = new Order();
+        order.setMember(member);
+        order.setDelivery(delivery);
+        for(OrderItem orderItem : orderItems){
+            order.addOrderItem(orderItem);
+
+        }
+        order.setStatus(OrderStatus.ORDER);
+        order.setOrderDate(LocalDateTime.now());
+        return order;
+    }
+
+
+    // 비즈니스 로직
+    /**
+     *주문 취소
+      */
+    public void cancel(){
+        if(delivery.getStatus() == DeliveryStatus.COMP){
+            throw new IllegalStateException("이미 배송완료된 상품입니다.");
+
+        }
+
+        this.setStatus(OrderStatus.CANCEL);
+        for(OrderItem orderItem : orderItems){
+            orderItem.cancel();
+        }
+
+    }
+
+    // 전체 주문 가격 조회
+    public  int getTotalPrice(){
+        int totalPrice = orderItems.stream()
+                .mapToInt(OrderItem::getTotalPrice)
+                .sum();
+        /* 위와 같은 로직 => java 8 의 기
+        *    for(OrderItem orderItem : orderItems){
+            totalPrice += orderItem.getTotalPrice();
+        }*/
+        return  totalPrice;
+    }
+
+
 }
