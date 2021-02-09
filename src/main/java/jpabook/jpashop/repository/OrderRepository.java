@@ -14,9 +14,10 @@ public class OrderRepository {
     
     
     @Autowired
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public OrderRepository(EntityManager entityManager) {
+
         this.entityManager = entityManager;
     }
 
@@ -28,10 +29,10 @@ public class OrderRepository {
         return entityManager.find(Order.class, id);
     }
 
-    public List<Order> findAll(){
-        return entityManager.createQuery( "select o from Order o", Order.class)
-                .getResultList();
-    }
+//    public List<Order> findAll(OrderSearch orderSearch){
+//        return entityManager.createQuery( "select o from Order o", Order.class)
+//                .getResultList();
+//    }
 
 
 }

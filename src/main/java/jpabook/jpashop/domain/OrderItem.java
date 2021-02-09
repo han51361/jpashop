@@ -1,14 +1,16 @@
 package jpabook.jpashop.domain;
 
 import jpabook.jpashop.domain.item.Item;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Getter @Setter
-
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // 생성자 새로 직접 생성 불가 제약( Setter를 사용할 수 없게끔 )제약을 protected로 걸어준다.
 public class OrderItem {
 
     @Id @GeneratedValue
@@ -26,6 +28,7 @@ public class OrderItem {
     private int orderPrice;
 
     private int count;
+
 
     // 생성 메소드
     public static  OrderItem createOrderItem(Item item, int orderPrice, int count){
