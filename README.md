@@ -46,4 +46,15 @@
     - #### 단방향 구조 : Controller -> Service -> Repository -> DB  
         - (Controller 에서 Repository 바로 접근 가능)               
         
-  - Garbage Collection                                                                                                                                                                                                                                                         
+  - Garbage Collection
+  
+  - 테스트를 진행할 때는 단위 테스트를 하는 것이 좋다
+    - 자체에 대해서 Mocking을 하고 테스트를 진행해야 더 좋다.    
+    - Domain 모델 패턴 => 장점 : repository 관계 없이 엔티티에 대해 바로 테스트를 작성할 수 있다.
+        - 자체 메소드가 작동하는지 DB와 관계없이 단위테스트 가능                                                                                                                                                                                                                                             
+
+
+ - ### JPA 에서 동적 Query 해결하기 
+    
+    - ~~강의는 들었으나 아직 실제로 해본 적은 없어서 쉽게 와닿지 않는다.~~ 
+    - ~~동적 쿼리 해결에 대한 모듈들의 메소드들을 정확히 다룰 줄 모르겟다.~~ 
