@@ -16,10 +16,7 @@ public class OrderRepository {
     @Autowired
     private final EntityManager entityManager;
 
-    public OrderRepository(EntityManager entityManager) {
 
-        this.entityManager = entityManager;
-    }
 
     public void save(Order order){
         entityManager.persist(order);
