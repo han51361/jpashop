@@ -27,7 +27,4 @@ public class Member {
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();  //nullpointException 날 이유가 없다.
 
-
-
-
 }
