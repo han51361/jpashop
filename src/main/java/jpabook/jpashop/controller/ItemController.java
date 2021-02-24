@@ -45,7 +45,7 @@ public class ItemController {
         return "items/itemList";
     }
 
-    @GetMapping("/itmes/{itemId}/edit")
+    @GetMapping("/items/{itemId}/edit")
     public String updateItemForm(@PathVariable("itemId") Long itemId, Model model){
         Book item = (Book) itemService.findOne(itemId);
         BookForm form = new BookForm();

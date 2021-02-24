@@ -60,10 +60,11 @@ public class Order {
         Order order = new Order();
         order.setMember(member);
         order.setDelivery(delivery);
+
         for(OrderItem orderItem : orderItems){
             order.addOrderItem(orderItem);
-
         }
+
         order.setStatus(OrderStatus.ORDER);
         order.setOrderDate(LocalDateTime.now());
         return order;
@@ -77,7 +78,6 @@ public class Order {
     public void cancel(){
         if(delivery.getStatus() == DeliveryStatus.COMP){
             throw new IllegalStateException("이미 배송완료된 상품입니다.");
-
         }
 
         this.setStatus(OrderStatus.CANCEL);

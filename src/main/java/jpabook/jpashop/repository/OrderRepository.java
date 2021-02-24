@@ -23,8 +23,6 @@ public class OrderRepository {
     @Autowired
     private final EntityManager entityManager;
 
-
-
     public void save(Order order){
         entityManager.persist(order);
     }
@@ -33,7 +31,7 @@ public class OrderRepository {
         return entityManager.find(Order.class, id);
     }
 
-    public List<Order> findAlBYlJPQL(OrderSearch orderSearch) {
+    public List<Order> findAllBylJPQL(OrderSearch orderSearch) {
 
 /*
         // 조건들이 이미 정해져있단 가정하 -> 정적 쿼리
@@ -45,10 +43,9 @@ public class OrderRepository {
                 //.setFirstResult(100) //페이징처리 100부터 시작
                 .setMaxResults(1000)//결과 제한
                 .getResultList();
-
  */
 
-        //language=JPAQL
+        //language = JPQL
         String jpql = "select o From Order o join o.member m";
         boolean isFirstCondition = true;
         //주문 상태 검색
@@ -99,8 +96,8 @@ public class OrderRepository {
         if(orderSearch.getOrderStatus() != null){
             Predicate status = cb.equal(o.get("status"), orderSearch.getOrderStatus());
             criteria.add(status);
-
         }
+
         //회원 이름 검색
         if (StringUtils.hasText(orderSearch.getMemberName())) {
             Predicate name =
